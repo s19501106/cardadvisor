@@ -316,7 +316,7 @@ html,body{
     <span class="app-title">刷卡助理</span>
     <span class="version-tag">v2</span>
   </div>
-  <div class="hdr-sub">玉山WORLD · 亞洲萬里通 · 永豐大戶 · CUBE</div>
+  <div class="hdr-sub">玉山WORLD · 亞洲萬里通 · 永豐大戶 · CUBE · 支援EV充電場景</div>
 </div>
 
 <div class="body">
@@ -436,8 +436,9 @@ const SCENES=[
   {id:"pharmacy",   label:"藥妝",    icon:"💊",sub:"屈臣氏・寶雅"},
   {id:"streaming",  label:"串流",    icon:"📺",sub:"Netflix・Spotify"},
   {id:"travel",     label:"旅遊",    icon:"✈️",sub:"雄獅・KKday"},
-  {id:"abroad",     label:"海外",    icon:"🌏",sub:"非日本"},
-  {id:"japan",      label:"日本",    icon:"🗼",sub:"日本・PayPay"},
+  {id:"abroad",      label:"海外",      icon:"🌏", sub:"非日本"},
+  {id:"japan",       label:"日本",      icon:"🗼", sub:"日本・PayPay"},
+  {id:"ev_charging", label:"電動車充電", icon:"⚡", sub:"U-Power・Evoasis・Tesla"},
 ];
 const WI={direct:0,linepay:1,pxpay:2};
 const DB={
@@ -495,6 +496,30 @@ const DB={
     dawho:[{r:.045,n:"國外（依等級）",t:""},{r:.045,n:"LINE Pay 日本（依等級）",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:"活動期間超越直刷"}],
     cube: [{r:.035,n:"日本賞方案3.5%（≤2026/4/30）",t:"後改趣旅行3%"},{r:.035,n:"LINE Pay 日本賞 3.5%",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:"強烈推薦全支付"}],
   },
+  ev_charging:{
+    // U-Power / Evoasis / EVALUE / TAIL / iCharging → CUBE 集精選 2%（無上限）
+    // Tesla 超充 → 一般消費，各卡自行適用
+    esun: [
+      {r:.002,n:"一般 0.2%（e-point）",t:"玉山×Evoasis限時活動最高5%（上限300點/月，至2026/6/30）"},
+      {r:.002,n:"LINE Pay 0.2%",t:""},
+      {r:.002,n:"全支付 0.2%",t:""},
+    ],
+    am: [
+      {r:.0205,n:"22元=1里（約2%，一般通路）",t:"台灣充電網絡目前不在加速器名單"},
+      {r:.0205,n:"LINE Pay 約2%",t:""},
+      {r:.0205,n:"全支付 約2%",t:""},
+    ],
+    dawho: [
+      {r:.035,n:"全通路（依等級）",t:""},
+      {r:.035,n:"LINE Pay 全通路",t:""},
+      {r:.035,n:"全支付 全通路",t:""},
+    ],
+    cube: [
+      {r:.02,n:"集精選 2%（U-Power/Evoasis/EVALUE/TAIL/iCharging，無上限）",t:"Tesla超充不在集精選通路（一般0.3%）；U-Power不定期領券活動可疊加至7%"},
+      {r:.02,n:"LINE Pay 集精選 2%",t:""},
+      {r:.003,n:"全支付 0.3%",t:""},
+    ],
+  },
 };
 // CUBE 卡：3% 回饋無上限（小樹點無上限）
 // LINE Pay 疊加額外優惠有 100 點/月，已標注於 tip 中，不另設 cap
@@ -514,12 +539,14 @@ const KW=[
   {keys:["雄獅","lion travel","kkday","klook","機票","航空","airline","hotel","飯店","airbnb","agoda","booking","星宇","長榮"],scene:"travel"},
   {keys:["amazon","ebay","rakuten","樂天","yahoo購物","pchome","momo","蝦皮","shopee"],scene:"abroad"},
   {keys:["japan","日本","tokyo","osaka","kyoto","沖繩","okinawa","bic camera","唐吉軻德","uniqlo","paypay"],scene:"japan"},
+  {keys:["u-power","upower","evoasis","evalue","icharging","tail energy","tail充電","超充","supercharger","tesla充電","tesla charge","電動車充電","ev充電","充電樁","充電站","快充"],scene:"ev_charging"},
 ];
 const OSM_MAP={
   "convenience":"convenience","supermarket":"supermarket","grocery":"supermarket",
   "fuel":"gas","gas_station":"gas","pharmacy":"pharmacy","chemist":"pharmacy",
   "restaurant":"restaurant","cafe":"restaurant","fast_food":"restaurant","bar":"restaurant",
   "hotel":"travel","hostel":"travel","travel_agency":"travel","airport":"travel",
+  "charging_station":"ev_charging","ev_charging":"ev_charging",
 };
 
 // ── 狀態 ────────────────────────────────────────────────
