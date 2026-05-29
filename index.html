@@ -2,173 +2,308 @@
 <html lang="zh-TW">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#0c0c12;--bg2:#141418;--bg3:#1c1c22;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.13);
-  --text:#f0f0f0;--text2:rgba(255,255,255,0.5);--text3:rgba(255,255,255,0.28);
-  --blue:#5B8EFF;--blue-bg:rgba(91,142,255,0.15);--blue-border:rgba(91,142,255,0.45);
-  --green:#2BCC88;--green-bg:rgba(43,204,136,0.13);--green-border:rgba(43,204,136,0.4);
-  --amber:#F5C242;--amber-bg:rgba(245,194,66,0.12);--amber-border:rgba(245,194,66,0.35);
-  --red:#F06060;--red-bg:rgba(240,96,96,0.12);--red-border:rgba(240,96,96,0.35);
-  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-full:999px;
+  --bg:#0e0e16;--bg2:#181820;--bg3:#22222c;--bg4:#2a2a36;
+  --border:rgba(255,255,255,0.09);--border2:rgba(255,255,255,0.16);
+  --text:#f2f2f2;--text2:rgba(255,255,255,0.6);--text3:rgba(255,255,255,0.35);
+  --blue:#5B8EFF;--blue-bg:rgba(91,142,255,0.14);--blue-border:rgba(91,142,255,0.4);
+  --green:#2BCC88;--green-bg:rgba(43,204,136,0.14);--green-border:rgba(43,204,136,0.4);
+  --amber:#F5C242;--amber-bg:rgba(245,194,66,0.13);--amber-border:rgba(245,194,66,0.38);
+  --red:#F06060;--red-bg:rgba(240,96,96,0.13);--red-border:rgba(240,96,96,0.38);
+  --r:10px;--r-lg:16px;--r-xl:20px;--r-full:999px;
 }
-html,body{background:var(--bg);font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--text);min-height:100%;-webkit-font-smoothing:antialiased;}
+html,body{
+  background:var(--bg);
+  font-family:'Noto Sans TC',system-ui,sans-serif;
+  color:var(--text);
+  min-height:100%;
+  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+}
 
 /* ── Header ── */
-.hdr{padding:18px 16px 14px;border-bottom:1px solid var(--border);}
-.hdr-row{display:flex;align-items:center;gap:9px;}
-.app-icon{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#3B6EE8,#7B3FD4);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.app-icon svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.app-title{font-size:16px;font-weight:800;letter-spacing:.2px;}
-.version-tag{font-size:9px;padding:2px 6px;border-radius:var(--r-full);background:var(--blue-bg);color:var(--blue);font-weight:700;letter-spacing:.5px;}
-.hdr-sub{font-size:11px;color:var(--text3);margin-top:3px;}
+.hdr{
+  padding:20px 18px 16px;
+  border-bottom:1px solid var(--border);
+  background:var(--bg);
+  position:sticky;top:0;z-index:50;
+}
+.hdr-row{display:flex;align-items:center;gap:10px;}
+.app-icon{
+  width:36px;height:36px;border-radius:11px;
+  background:linear-gradient(135deg,#3B6EE8,#7B3FD4);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.app-icon svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.app-title{font-size:18px;font-weight:900;letter-spacing:.3px;}
+.version-tag{
+  font-size:10px;padding:3px 8px;border-radius:var(--r-full);
+  background:var(--blue-bg);color:var(--blue);font-weight:700;
+}
+.hdr-sub{font-size:12px;color:var(--text3);margin-top:4px;}
 
 /* ── Body ── */
-.body{padding:14px 16px 32px;}
+.body{padding:16px 16px 40px;}
 
-/* ── Card library ── */
-.section-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.7px;text-transform:uppercase;margin-bottom:8px;}
-.card-lib{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px 13px;margin-bottom:12px;}
-.card-chips{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
-.chip{display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:var(--r-md);border:1px solid;cursor:pointer;transition:all .15s;user-select:none;}
-.chip.off{opacity:.35;border-color:var(--border) !important;background:transparent !important;}
-.chip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+/* ── Section label ── */
+.section-label{
+  font-size:12px;font-weight:700;color:var(--text3);
+  letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px;
+}
+
+/* ── Card lib ── */
+.card-lib{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:14px 15px;margin-bottom:16px;}
+.card-chips{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.chip{
+  display:flex;align-items:center;gap:9px;
+  padding:11px 13px;border-radius:var(--r-lg);border:1px solid;
+  cursor:pointer;transition:all .15s;user-select:none;
+}
+.chip.off{opacity:.3;border-color:var(--border) !important;background:transparent !important;}
+.chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .chip-info{min-width:0;}
-.chip-name{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.chip-bank{font-size:10px;opacity:.6;margin-top:1px;}
+.chip-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.chip-bank{font-size:11px;opacity:.6;margin-top:2px;}
 
 /* ── DAWHO tier ── */
-.tier-row{display:flex;align-items:center;gap:8px;margin-top:9px;padding-top:9px;border-top:1px solid var(--border);}
-.tier-label{font-size:11px;color:var(--text2);white-space:nowrap;}
-.tier-btns{display:flex;gap:5px;flex:1;}
-.tbtn{flex:1;padding:5px 0;border-radius:var(--r-full);border:1px solid var(--border2);background:transparent;color:var(--text3);font-size:10px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;}
+.tier-row{display:flex;align-items:center;gap:9px;margin-top:11px;padding-top:11px;border-top:1px solid var(--border);}
+.tier-label{font-size:12px;color:var(--text2);white-space:nowrap;font-weight:600;}
+.tier-btns{display:flex;gap:6px;flex:1;}
+.tbtn{
+  flex:1;padding:7px 0;border-radius:var(--r-full);
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text3);font-size:11px;font-weight:700;
+  cursor:pointer;font-family:inherit;transition:all .15s;
+}
 .tbtn.on{border-color:#B82C0E55;background:#B82C0E18;color:#F06040;}
 
 /* ── Detect box ── */
-.detect-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px 13px;margin-bottom:12px;}
-.input-row{display:flex;gap:8px;align-items:center;}
-.store-input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-md);padding:9px 12px;font-size:13px;color:var(--text);font-family:inherit;outline:none;transition:border-color .15s;min-width:0;}
+.detect-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:14px 15px;margin-bottom:16px;}
+.input-row{display:flex;gap:9px;align-items:center;}
+.store-input{
+  flex:1;background:var(--bg3);border:1px solid var(--border2);
+  border-radius:var(--r-lg);padding:12px 14px;
+  font-size:15px;color:var(--text);font-family:inherit;
+  outline:none;transition:border-color .15s;min-width:0;
+}
 .store-input:focus{border-color:var(--blue-border);}
 .store-input::placeholder{color:var(--text3);}
-.gps-btn{width:40px;height:40px;border-radius:var(--r-md);border:1px solid var(--blue-border);background:var(--blue-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;}
-.gps-btn:hover{background:rgba(91,142,255,0.25);}
-.gps-btn svg{width:18px;height:18px;fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s;}
+.gps-btn{
+  width:46px;height:46px;border-radius:var(--r-lg);
+  border:1px solid var(--blue-border);background:var(--blue-bg);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .15s;
+}
+.gps-btn:hover{background:rgba(91,142,255,.25);}
+.gps-btn svg{width:20px;height:20px;fill:none;stroke:var(--blue);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s;}
 .gps-btn.spinning svg{animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loc-status{margin-top:8px;font-size:11px;display:flex;align-items:flex-start;gap:6px;line-height:1.4;}
-.loc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px;}
-.matched-pill{display:inline-flex;align-items:center;gap:5px;margin-top:7px;padding:5px 10px;border-radius:var(--r-full);font-size:11px;font-weight:600;}
-.sug-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
-.sug{padding:4px 10px;border-radius:var(--r-full);border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-size:11px;cursor:pointer;font-family:inherit;transition:all .12s;}
+.loc-status{margin-top:10px;font-size:13px;display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+.loc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.matched-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:9px;padding:7px 13px;border-radius:var(--r-full);
+  font-size:13px;font-weight:600;
+}
+.sug-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;}
+.sug{
+  padding:6px 13px;border-radius:var(--r-full);
+  border:1px solid var(--border2);background:var(--bg3);
+  color:var(--text2);font-size:13px;cursor:pointer;
+  font-family:inherit;transition:all .12s;
+}
 .sug:hover{border-color:var(--blue-border);color:var(--blue);background:var(--blue-bg);}
 
 /* ── Amount ── */
-.amt-box{display:flex;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:10px 13px;margin-bottom:12px;}
-.amt-label{font-size:12px;color:var(--text2);margin-right:6px;white-space:nowrap;}
-.amt-cur{font-size:13px;color:var(--text3);}
-.amt-input{flex:1;background:transparent;border:none;outline:none;font-size:22px;font-weight:800;color:var(--text);text-align:right;font-family:inherit;-moz-appearance:textfield;min-width:0;}
+.amt-box{
+  display:flex;align-items:center;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-xl);padding:14px 16px;margin-bottom:16px;
+}
+.amt-label{font-size:15px;color:var(--text2);margin-right:8px;white-space:nowrap;font-weight:600;}
+.amt-input{
+  flex:1;background:transparent;border:none;outline:none;
+  font-size:36px;font-weight:900;color:var(--text);
+  text-align:right;font-family:inherit;
+  -moz-appearance:textfield;min-width:0;
+}
 .amt-input::-webkit-inner-spin-button{display:none;}
 
 /* ── Wallets ── */
-.wallet-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px;}
-.wtab{padding:9px 6px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--bg2);color:var(--text2);font-size:11px;font-weight:500;text-align:center;cursor:pointer;transition:all .15s;font-family:inherit;}
-.wtab.on{border-color:var(--blue-border);background:var(--blue-bg);color:var(--blue);font-weight:700;}
-.wtab-icon{font-size:16px;display:block;margin-bottom:2px;}
+.wallet-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:16px;}
+.wtab{
+  padding:12px 6px;border-radius:var(--r-lg);
+  border:1px solid var(--border);background:var(--bg2);
+  color:var(--text2);font-size:13px;font-weight:600;
+  text-align:center;cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.wtab.on{border-color:var(--blue-border);background:var(--blue-bg);color:var(--blue);font-weight:800;}
+.wtab-icon{font-size:20px;display:block;margin-bottom:4px;}
 
 /* ── Scenes ── */
-.scene-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;margin-bottom:7px;-webkit-tap-highlight-color:transparent;}
-.scene-toggle{font-size:10px;color:var(--blue);font-weight:600;}
-.scene-grid{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
-.sbtn{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:var(--r-full);border:1px solid var(--border);background:var(--bg2);color:var(--text2);font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;font-family:inherit;}
-.sbtn.on{border-color:var(--blue-border);background:var(--blue-bg);color:var(--blue);font-weight:700;}
+.scene-header{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;margin-bottom:10px;-webkit-tap-highlight-color:transparent;
+}
+.scene-toggle{font-size:12px;color:var(--blue);font-weight:700;}
+.scene-grid{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+.sbtn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:9px 14px;border-radius:var(--r-full);
+  border:1px solid var(--border);background:var(--bg2);
+  color:var(--text2);font-size:13px;font-weight:600;
+  cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.sbtn.on{border-color:var(--blue-border);background:var(--blue-bg);color:var(--blue);}
 .sbtn.gps-match{border-color:var(--green-border);background:var(--green-bg);color:var(--green);}
 
 /* ── Scene banner ── */
-.scene-banner{border-radius:var(--r-lg);padding:12px 14px;margin-bottom:11px;display:flex;align-items:center;gap:11px;}
-.scene-icon{font-size:24px;flex-shrink:0;}
-.banner-main{font-size:14px;font-weight:700;}
-.banner-sub{font-size:10px;opacity:.5;margin-top:1px;}
+.scene-banner{
+  border-radius:var(--r-xl);padding:16px;
+  margin-bottom:14px;display:flex;align-items:center;gap:13px;
+}
+.scene-icon{font-size:28px;flex-shrink:0;}
+.banner-main{font-size:17px;font-weight:800;}
+.banner-sub{font-size:12px;opacity:.5;margin-top:2px;}
 .banner-saving{margin-left:auto;text-align:right;flex-shrink:0;}
-.saving-label{font-size:9px;opacity:.5;}
-.saving-num{font-size:18px;font-weight:800;margin-top:1px;}
+.saving-label{font-size:11px;opacity:.5;}
+.saving-num{font-size:26px;font-weight:900;margin-top:2px;}
 
 /* ── Result rows ── */
-.result-list{display:flex;flex-direction:column;gap:7px;}
-.rrow{display:flex;align-items:center;gap:10px;padding:12px 13px;border-radius:var(--r-lg);border:1px solid var(--border);background:var(--bg2);transition:all .2s;}
-.rrow.best{border-width:1.5px;}
-.avatar{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;letter-spacing:.2px;flex-shrink:0;}
+.result-list{display:flex;flex-direction:column;gap:10px;}
+.rrow{
+  display:flex;align-items:flex-start;gap:13px;
+  padding:16px;border-radius:var(--r-xl);
+  border:1px solid var(--border);background:var(--bg2);
+  transition:all .2s;
+}
+.rrow.best{border-width:2px;}
+.avatar{
+  width:46px;height:46px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:#fff;
+  letter-spacing:.2px;flex-shrink:0;
+}
 .rrow-body{flex:1;min-width:0;}
-.rrow-name{font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:2px;}
-.best-tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:var(--r-full);color:#fff;letter-spacing:.3px;}
-.rrow-note{font-size:10px;color:var(--text3);line-height:1.4;}
+.rrow-name{
+  font-size:16px;font-weight:800;
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:4px;
+}
+.best-tag{
+  font-size:10px;font-weight:800;padding:3px 9px;
+  border-radius:var(--r-full);color:#fff;letter-spacing:.3px;
+}
+.rrow-note{font-size:13px;color:var(--text2);line-height:1.5;}
 .rrow-right{text-align:right;flex-shrink:0;}
-.rrow-save{font-size:15px;font-weight:800;}
-.rrow-pct{font-size:9px;color:var(--text3);margin-top:1px;}
+.rrow-save{font-size:22px;font-weight:900;}
+.rrow-pct{font-size:12px;color:var(--text3);margin-top:2px;font-weight:600;}
 
 /* ── Cap bar ── */
-.cap-wrap{margin-top:7px;}
-.cap-bar-bg{height:4px;border-radius:var(--r-full);background:rgba(255,255,255,0.08);overflow:hidden;margin-bottom:3px;}
+.cap-wrap{margin-top:10px;}
+.cap-bar-bg{height:5px;border-radius:var(--r-full);background:rgba(255,255,255,0.08);overflow:hidden;margin-bottom:4px;}
 .cap-bar-fill{height:100%;border-radius:var(--r-full);transition:width .4s;}
-.cap-text{font-size:9px;color:var(--text3);display:flex;justify-content:space-between;}
-.cap-warn{font-size:10px;font-weight:700;margin-top:4px;display:flex;align-items:center;gap:4px;}
+.cap-text{font-size:12px;color:var(--text3);display:flex;justify-content:space-between;margin-bottom:4px;font-weight:500;}
+.cap-warn{font-size:12px;font-weight:700;margin-top:5px;display:flex;align-items:center;gap:4px;}
 .cap-warn.warning{color:var(--amber);}
 .cap-warn.full{color:var(--red);}
 
 /* ── Log button ── */
-.log-btn{width:100%;margin-top:10px;padding:11px;border-radius:var(--r-lg);border:1px solid var(--green-border);background:var(--green-bg);color:var(--green);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s;}
-.log-btn:hover{background:rgba(43,204,136,0.22);}
+.log-btn{
+  width:100%;margin-top:12px;padding:16px;
+  border-radius:var(--r-xl);border:1px solid var(--green-border);
+  background:var(--green-bg);color:var(--green);
+  font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  transition:all .15s;
+}
+.log-btn:hover{background:rgba(43,204,136,.22);}
 
 /* ── Monthly summary ── */
-.monthly-header{display:flex;justify-content:space-between;align-items:center;cursor:pointer;margin-bottom:7px;-webkit-tap-highlight-color:transparent;}
-.monthly-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;}
-.mrow{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-md);padding:10px 12px;}
-.mrow-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.mrow-name{font-size:11px;font-weight:700;}
-.mrow-badge{font-size:9px;padding:2px 7px;border-radius:var(--r-full);font-weight:700;}
+.monthly-header{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;margin-bottom:10px;-webkit-tap-highlight-color:transparent;
+}
+.monthly-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.mrow{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);padding:14px 16px;}
+.mrow-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.mrow-name{font-size:15px;font-weight:800;}
+.mrow-badge{font-size:11px;padding:4px 10px;border-radius:var(--r-full);font-weight:700;}
 .mrow-badge.ok{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);}
 .mrow-badge.warn{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border);}
 .mrow-badge.full{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border);}
-.mrow-items{display:flex;flex-direction:column;gap:5px;}
-.mitem{font-size:10px;color:var(--text2);}
-.mitem-bar{height:4px;border-radius:var(--r-full);background:rgba(255,255,255,0.08);overflow:hidden;margin:3px 0;}
+.mrow-items{display:flex;flex-direction:column;gap:8px;}
+.mitem{font-size:13px;color:var(--text2);}
+.mitem-row{display:flex;justify-content:space-between;margin-bottom:4px;font-size:13px;}
+.mitem-bar{height:5px;border-radius:var(--r-full);background:rgba(255,255,255,0.08);overflow:hidden;}
 
 /* ── Log modal ── */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;display:flex;align-items:flex-end;justify-content:center;}
-.modal{background:#1c1c28;border:1px solid var(--border2);border-radius:20px 20px 0 0;padding:24px 20px 32px;width:100%;max-width:430px;}
-.modal-title{font-size:16px;font-weight:800;margin-bottom:4px;}
-.modal-sub{font-size:11px;color:var(--text3);margin-bottom:18px;}
-.modal-amt-box{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-md);padding:10px 14px;margin-bottom:14px;}
-.modal-amt-cur{font-size:14px;color:var(--text3);margin-right:6px;}
-.modal-amt-input{flex:1;background:transparent;border:none;outline:none;font-size:26px;font-weight:800;color:var(--text);font-family:inherit;-moz-appearance:textfield;min-width:0;}
+.modal-bg{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:100;display:flex;align-items:flex-end;justify-content:center;
+}
+.modal{
+  background:#1c1c28;border:1px solid var(--border2);
+  border-radius:24px 24px 0 0;padding:28px 20px 36px;
+  width:100%;max-width:430px;
+}
+.modal-title{font-size:19px;font-weight:900;margin-bottom:5px;}
+.modal-sub{font-size:13px;color:var(--text3);margin-bottom:20px;}
+.modal-amt-box{
+  display:flex;align-items:center;background:var(--bg3);
+  border:1px solid var(--border2);border-radius:var(--r-lg);
+  padding:12px 16px;margin-bottom:16px;
+}
+.modal-amt-cur{font-size:15px;color:var(--text3);margin-right:8px;font-weight:600;}
+.modal-amt-input{
+  flex:1;background:transparent;border:none;outline:none;
+  font-size:32px;font-weight:900;color:var(--text);
+  font-family:inherit;-moz-appearance:textfield;min-width:0;
+}
 .modal-amt-input::-webkit-inner-spin-button{display:none;}
-.modal-confirm{width:100%;padding:13px;border-radius:var(--r-lg);border:none;background:linear-gradient(135deg,#3B6EE8,#7B3FD4);color:#fff;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;margin-bottom:8px;}
-.modal-cancel{width:100%;padding:10px;border-radius:var(--r-lg);border:1px solid var(--border2);background:transparent;color:var(--text2);font-size:13px;cursor:pointer;font-family:inherit;}
+.modal-confirm{
+  width:100%;padding:16px;border-radius:var(--r-lg);border:none;
+  background:linear-gradient(135deg,#3B6EE8,#7B3FD4);
+  color:#fff;font-size:16px;font-weight:800;cursor:pointer;
+  font-family:inherit;margin-bottom:10px;
+}
+.modal-cancel{
+  width:100%;padding:12px;border-radius:var(--r-lg);
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text2);font-size:14px;cursor:pointer;font-family:inherit;
+}
 
 /* ── Tip ── */
-.tip{display:flex;gap:7px;align-items:flex-start;padding:9px 12px;border-radius:var(--r-md);margin-top:6px;border:1px solid var(--amber-border);background:var(--amber-bg);}
-.tip-text{font-size:11px;color:var(--amber);line-height:1.5;}
-.tip-name{font-weight:700;}
+.tip{
+  display:flex;gap:8px;align-items:flex-start;
+  padding:12px 14px;border-radius:var(--r-lg);margin-top:8px;
+  border:1px solid var(--amber-border);background:var(--amber-bg);
+}
+.tip-text{font-size:13px;color:var(--amber);line-height:1.6;}
+.tip-name{font-weight:800;}
 
 /* ── Footer ── */
-.footer{margin-top:16px;font-size:10px;color:var(--text3);text-align:center;line-height:1.8;}
+.footer{margin-top:20px;font-size:12px;color:var(--text3);text-align:center;line-height:2;}
 
 /* ── Empty state ── */
-.empty{text-align:center;padding:24px 0;color:var(--text3);font-size:13px;}
+.empty{text-align:center;padding:28px 0;color:var(--text3);font-size:15px;}
 
-/* ── Reset month ── */
-.reset-btn{padding:6px 13px;border-radius:var(--r-full);border:1px solid var(--red-border);background:transparent;color:var(--red);font-size:10px;font-weight:700;cursor:pointer;font-family:inherit;}
+/* ── Reset btn ── */
+.reset-btn{
+  padding:7px 14px;border-radius:var(--r-full);
+  border:1px solid var(--red-border);background:transparent;
+  color:var(--red);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;
+}
 </style>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="刷卡助理">
-<meta name="theme-color" content="#0c0c12">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuWIt+WNoeWKqeeQhiIsICJzaG9ydF9uYW1lIjogIuWIt+WNoeWKqeeQhiIsICJkZXNjcmlwdGlvbiI6ICLmmbrmhafpgbjljaHjg7tHUFPlrprkvY3jg7vnjonlsbEv5ZyL5rOwL+awuOixkC9DVUJFIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwYzBjMTIiLCAidGhlbWVfY29sb3IiOiAiIzBjMGMxMiIsICJpY29ucyI6IFt7InNyYyI6ICJpY29uLnN2ZyIsICJzaXplcyI6ICJhbnkiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzFhMWEyZSIvPgogIDxyZWN0IHg9IjYwIiB5PSIxNjAiIHdpZHRoPSIzOTIiIGhlaWdodD0iMjQwIiByeD0iMjgiIGZpbGw9IiMxZTNhN2IiLz4KICA8cmVjdCB4PSI2MCIgeT0iMjIwIiB3aWR0aD0iMzkyIiBoZWlnaHQ9IjcwIiBmaWxsPSIjMTUyZDZiIi8+CiAgPHJlY3QgeD0iODAiIHk9IjMyMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxOCIgcng9IjkiIGZpbGw9IiM1YjhlZmYiIG9wYWNpdHk9IjAuNyIvPgogIDxyZWN0IHg9IjIwMCIgeT0iMzIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iIzViOGVmZiIgb3BhY2l0eT0iMC43Ii8+CiAgPHJlY3QgeD0iMzIwIiB5PSIzMjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTgiIHJ4PSI5IiBmaWxsPSIjNWI4ZWZmIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSI4MCIgeT0iMzU1IiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iIzViOGVmZiIgb3BhY2l0eT0iMC41Ii8+CiAgPGNpcmNsZSBjeD0iMzcwIiBjeT0iMTk1IiByPSIyOCIgZmlsbD0iI2M5NDAyMCIgb3BhY2l0eT0iMC44NSIvPgogIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjE5NSIgcj0iMjgiIGZpbGw9IiNmMDYwNDAiIG9wYWNpdHk9IjAuODUiLz4KICA8cmVjdCB4PSI4MCIgeT0iMTc1IiB3aWR0aD0iNTYiIGhlaWdodD0iNDAiIHJ4PSI4IiBmaWxsPSIjZjVjMjQyIiBvcGFjaXR5PSIwLjg1Ii8+Cjwvc3ZnPg==">
+<meta name="theme-color" content="#0e0e16">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuWIt+WNoeWKqeeQhiIsICJzaG9ydF9uYW1lIjogIuWIt+WNoeWKqeeQhiIsICJzdGFydF91cmwiOiAiLiIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAib3JpZW50YXRpb24iOiAicG9ydHJhaXQiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMGUwZTE2IiwgInRoZW1lX2NvbG9yIjogIiMwZTBlMTYifQ==">
 </head>
 <body>
 
@@ -186,48 +321,16 @@ html,body{background:var(--bg);font-family:'Noto Sans TC',system-ui,sans-serif;c
 
 <div class="body">
 
-<!-- PWA install banner -->
-<div id="install-banner" style="display:none;position:relative;background:#1c1c28;border:1px solid rgba(91,142,255,0.3);border-radius:12px;padding:11px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
-  <div style="flex:1;min-width:0;">
-    <div style="font-size:12px;font-weight:700;color:#f0f0f0">加入手機主畫面</div>
-    <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px" id="install-hint"></div>
-  </div>
-  <button id="install-btn" style="background:rgba(91,142,255,0.2);border:1px solid rgba(91,142,255,0.4);border-radius:8px;padding:6px 12px;color:#5B8EFF;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0">安裝</button>
-  <button onclick="document.getElementById('install-banner').style.display='none'" style="background:transparent;border:none;color:rgba(255,255,255,0.3);font-size:16px;cursor:pointer;padding:0 0 0 4px;line-height:1;">×</button>
-</div>
-<script>
-let deferredPrompt=null;
-const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
-const isInStandalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
-if(!isInStandalone){
-  if(isIOS){
-    document.getElementById('install-hint').textContent='點 Safari 底部分享按鈕 → 「加入主畫面」';
-    document.getElementById('install-banner').style.display='flex';
-    document.getElementById('install-btn').onclick=()=>{};
-  }
-  window.addEventListener('beforeinstallprompt',e=>{
-    e.preventDefault();deferredPrompt=e;
-    document.getElementById('install-hint').textContent='點「安裝」即可加入 Android 主畫面';
-    document.getElementById('install-banner').style.display='flex';
-    document.getElementById('install-btn').onclick=()=>{
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(()=>{document.getElementById('install-banner').style.display='none';});
-    };
-  });
-}
-</script>
-
   <!-- 卡庫 -->
   <div class="section-label">我的卡庫</div>
   <div class="card-lib">
     <div class="card-chips" id="card-chips"></div>
-    <!-- DAWHO 帳戶等級 -->
     <div class="tier-row" id="tier-row" style="display:none">
       <span class="tier-label">大戶等級</span>
       <div class="tier-btns">
-        <button class="tbtn" data-tier="none" onclick="setDawhoTier('none')">一般</button>
+        <button class="tbtn" data-tier="none"  onclick="setDawhoTier('none')">一般</button>
         <button class="tbtn" data-tier="dawho" onclick="setDawhoTier('dawho')">大戶</button>
-        <button class="tbtn" data-tier="plus" onclick="setDawhoTier('plus')">大戶 Plus</button>
+        <button class="tbtn" data-tier="plus"  onclick="setDawhoTier('plus')">大戶 Plus</button>
       </div>
     </div>
   </div>
@@ -276,17 +379,17 @@ if(!isInStandalone){
   <div id="results" class="result-list"></div>
   <div id="tip"></div>
 
-  <!-- 記錄消費按鈕 -->
+  <!-- 記錄消費 -->
   <button class="log-btn" id="log-btn" style="display:none" onclick="openLogModal()">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
     記錄此消費（套用最佳推薦）
   </button>
 
-  <!-- 本月回饋追蹤 -->
-  <div style="margin-top:18px;">
+  <!-- 本月追蹤 -->
+  <div style="margin-top:22px;">
     <div class="monthly-header" onclick="toggleMonthly()">
       <div class="section-label" style="margin:0">本月回饋追蹤</div>
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;">
         <button class="reset-btn" onclick="event.stopPropagation();resetMonth()">重置</button>
         <span class="scene-toggle" id="mtoggle">▾ 展開</span>
       </div>
@@ -300,7 +403,7 @@ if(!isInStandalone){
   </div>
 </div>
 
-<!-- 記錄消費 Modal -->
+<!-- 記錄 Modal -->
 <div id="log-modal" class="modal-bg" style="display:none" onclick="if(event.target===this)closeLogModal()">
   <div class="modal">
     <div class="modal-title">記錄消費</div>
@@ -315,16 +418,15 @@ if(!isInStandalone){
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 // 資料
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 const CARDS=[
   {id:"esun",  name:"玉山 WORLD",  bank:"玉山銀行", color:"#1A4A9B", light:"#5B8EFF", active:true},
   {id:"am",    name:"亞洲萬里通",  bank:"國泰世華", color:"#006644", light:"#2BCC88", active:true},
   {id:"dawho", name:"大戶 DAWHO",  bank:"永豐銀行", color:"#B82C0E", light:"#F06040", active:true},
   {id:"cube",  name:"CUBE 卡",     bank:"國泰世華", color:"#4B2E9A", light:"#9B6CF0", active:true},
 ];
-
 const SCENES=[
   {id:"convenience",label:"便利商店",icon:"🏪",sub:"7-11・全家"},
   {id:"restaurant", label:"餐廳",    icon:"🍽️",sub:"餐廳・連鎖"},
@@ -336,71 +438,64 @@ const SCENES=[
   {id:"abroad",     label:"海外",    icon:"🌏",sub:"非日本"},
   {id:"japan",      label:"日本",    icon:"🗼",sub:"日本・PayPay"},
 ];
-
 const WI={direct:0,linepay:1,pxpay:2};
-
-// [direct, linepay, pxpay]: {r:回饋率, n:說明, t:注意事項}
 const DB={
   convenience:{
     esun: [{r:.004,n:"25元=1紅利點（0.4%）",t:""},{r:.004,n:"LINE Pay 可繞過超商小額限制",t:"超商走LINE Pay可繞過財金小額支付限制"},{r:.004,n:"首綁全支付有88全點禮",t:"2026/6/28前首次綁定"}],
     am:   [{r:.0045,n:"22元=1里（約0.45%）",t:""},{r:.0045,n:"LINE Pay 0.45%",t:""},{r:.0045,n:"全支付 0.45%",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:"需大戶等級（永豐數位帳戶10萬）"},{r:.035,n:"LINE Pay 全通路 3.5%",t:""},{r:.035,n:"全支付 全通路 3.5%",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:"需大戶等級（永豐數位帳戶10萬）"},{r:.035,n:"LINE Pay 全通路",t:""},{r:.035,n:"全支付 全通路",t:""}],
     cube: [{r:.030,n:"樂饗購方案 7-11/全家 3%",t:"需切換「樂饗購」方案"},{r:.032,n:"LINE Pay 領券疊加約3.2%",t:"月刷8筆達門檻，上限100點/月"},{r:.030,n:"樂饗購方案 3%",t:""}],
   },
   restaurant:{
     esun: [{r:.004,n:"一般消費 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.004,n:"全支付 0.4%",t:""}],
-    am:   [{r:.0455,n:"加速器特店 10元=1里（約4.55%）",t:"確認餐廳是否在加速器名單"},{r:.0455,n:"LINE Pay 加速器適用",t:""},{r:.0455,n:"全支付 加速器適用",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:""},{r:.035,n:"LINE Pay 3.5%",t:""},{r:.035,n:"全支付 3.5%",t:""}],
+    am:   [{r:.0455,n:"加速器特店 10元=1里（4.55%）",t:"確認餐廳是否在加速器名單"},{r:.0455,n:"LINE Pay 加速器適用",t:""},{r:.0455,n:"全支付 加速器適用",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:""},{r:.035,n:"LINE Pay 全通路",t:""},{r:.035,n:"全支付 全通路",t:""}],
     cube: [{r:.030,n:"樂饗購方案 3%（麥當勞/星巴克）",t:"需切換「樂饗購」"},{r:.032,n:"LINE Pay 疊加約3.2%",t:"月刷8筆達門檻"},{r:.003,n:"一般消費 0.3%",t:""}],
   },
   supermarket:{
-    esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.008,n:"首綁全支付禮（88全點）+日常0.4%",t:"2026/6/28前首綁優惠"}],
-    am:   [{r:.0045,n:"22元=1里（超市非加速器）",t:""},{r:.0045,n:"LINE Pay 0.45%",t:""},{r:.0045,n:"全支付 0.45%",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:""},{r:.035,n:"LINE Pay 繞過全聯限制 3.5%",t:"LINE Pay可繞過全聯直付限制"},{r:.035,n:"全支付 3.5%",t:""}],
-    cube: [{r:.030,n:"樂饗購方案 全聯 3%",t:"需切換「樂饗購」"},{r:.032,n:"LINE Pay 疊加約3.2%",t:""},{r:.003,n:"Q1活動已結束，目前0.3%",t:"全支付×CUBE Q1活動2026/3/31止"}],
+    esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.008,n:"首綁全支付禮+日常0.4%",t:"2026/6/28前首綁優惠"}],
+    am:   [{r:.0045,n:"22元=1里（超市）",t:""},{r:.0045,n:"LINE Pay 0.45%",t:""},{r:.0045,n:"全支付 0.45%",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:""},{r:.035,n:"LINE Pay 繞過全聯限制",t:"LINE Pay可繞過全聯直付限制"},{r:.035,n:"全支付 全通路",t:""}],
+    cube: [{r:.030,n:"樂饗購方案 全聯 3%",t:"需切換「樂饗購」"},{r:.032,n:"LINE Pay 疊加約3.2%",t:""},{r:.003,n:"Q1活動已結束，目前0.3%",t:""}],
   },
   gas:{
-    esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.004,n:"全支付不適用加油站",t:""}],
+    esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.004,n:"全支付不適用",t:""}],
     am:   [{r:.0455,n:"加速器 中油/台亞 10元=1里",t:""},{r:.0455,n:"LINE Pay 4.55%",t:""},{r:.003,n:"加油站不支援全支付",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:""},{r:.035,n:"LINE Pay 3.5%",t:""},{r:.003,n:"加油站不支援全支付",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:""},{r:.035,n:"LINE Pay 全通路",t:""},{r:.003,n:"加油站不支援全支付",t:""}],
     cube: [{r:.003,n:"未在指定通路 0.3%",t:"建議改刷亞洲萬里通或大戶卡"},{r:.003,n:"LINE Pay 0.3%",t:""},{r:.003,n:"不適用",t:""}],
   },
   pharmacy:{
     esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.004,n:"全支付 0.4%",t:""}],
     am:   [{r:.0455,n:"加速器 屈臣氏/寶雅 10元=1里",t:""},{r:.0455,n:"LINE Pay 4.55%",t:""},{r:.0455,n:"全支付 4.55%",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:""},{r:.035,n:"LINE Pay 3.5%",t:""},{r:.035,n:"全支付 3.5%",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:""},{r:.035,n:"LINE Pay 全通路",t:""},{r:.035,n:"全支付 全通路",t:""}],
     cube: [{r:.003,n:"未在主要方案 0.3%",t:"建議改用亞洲萬里通或大戶卡"},{r:.003,n:"LINE Pay 0.3%",t:""},{r:.003,n:"全支付 0.3%",t:""}],
   },
   streaming:{
     esun: [{r:.004,n:"一般 0.4%",t:""},{r:.004,n:"訂閱類無法走LINE Pay",t:""},{r:.004,n:"訂閱類不適用",t:""}],
     am:   [{r:.0455,n:"加速器 Netflix 10元=1里",t:""},{r:.004,n:"訂閱自動扣款不走LINE Pay",t:""},{r:.004,n:"不適用",t:""}],
-    dawho:[{r:.035,n:"全通路含網路消費 3.5%",t:""},{r:.004,n:"訂閱類不適用",t:""},{r:.004,n:"不適用",t:""}],
+    dawho:[{r:.035,n:"全通路含網路消費（依等級）",t:""},{r:.004,n:"訂閱類不適用",t:""},{r:.004,n:"不適用",t:""}],
     cube: [{r:.030,n:"玩數位方案 Netflix/Spotify 3%",t:"需切換「玩數位」方案"},{r:.004,n:"訂閱類不適用",t:""},{r:.004,n:"不適用",t:""}],
   },
   travel:{
     esun: [{r:.004,n:"一般 0.4%（附旅平險）",t:"刷機票有旅平險是主要優勢"},{r:.004,n:"LINE Pay 0.4%",t:""},{r:.004,n:"不適用",t:""}],
-    am:   [{r:.0455,n:"加速器 雄獅/東南/KKday 10元=1里",t:"刷國泰航空享92折"},{r:.0455,n:"LINE Pay 加速器適用",t:""},{r:.004,n:"不適用",t:""}],
-    dawho:[{r:.035,n:"全通路 3.5%",t:""},{r:.035,n:"LINE Pay 3.5%",t:""},{r:.004,n:"不適用",t:""}],
+    am:   [{r:.0455,n:"加速器 雄獅/KKday 10元=1里",t:"刷國泰航空享92折"},{r:.0455,n:"LINE Pay 加速器適用",t:""},{r:.004,n:"不適用",t:""}],
+    dawho:[{r:.035,n:"全通路（依等級）",t:""},{r:.035,n:"LINE Pay 全通路",t:""},{r:.004,n:"不適用",t:""}],
     cube: [{r:.030,n:"趣旅行方案 KKday/Klook/Agoda 3%",t:"需切換「趣旅行」"},{r:.030,n:"LINE Pay 趣旅行 3%",t:""},{r:.004,n:"不適用",t:""}],
   },
   abroad:{
-    esun: [{r:.010,n:"海外基礎1%（登錄活動最高3%）",t:"需登錄限時加碼活動"},{r:.010,n:"LINE Pay 海外 1%",t:""},{r:.004,n:"不適用海外",t:""}],
-    am:   [{r:.0455,n:"加速器海外實體 10元=1里（無上限）",t:""},{r:.0455,n:"LINE Pay 加速器海外",t:""},{r:.004,n:"不適用海外",t:""}],
-    dawho:[{r:.045,n:"大戶等級國外 4.5%（Plus 6%）",t:"大戶Plus需資產達100萬"},{r:.045,n:"LINE Pay 海外 4.5%",t:""},{r:.004,n:"不適用海外",t:""}],
-    cube: [{r:.030,n:"趣旅行方案海外實體3%（Level2）",t:"需設定自動扣繳達Level2"},{r:.030,n:"LINE Pay 趣旅行 3%",t:""},{r:.004,n:"不適用海外",t:""}],
+    esun: [{r:.010,n:"海外基礎1%（登錄最高3%）",t:"需登錄限時加碼活動"},{r:.010,n:"LINE Pay 海外 1%",t:""},{r:.004,n:"不適用海外",t:""}],
+    am:   [{r:.0455,n:"加速器海外實體 10元=1里",t:""},{r:.0455,n:"LINE Pay 加速器海外",t:""},{r:.004,n:"不適用海外",t:""}],
+    dawho:[{r:.045,n:"國外（依等級，Plus 6%）",t:"大戶Plus需資產達100萬"},{r:.045,n:"LINE Pay 海外（依等級）",t:""},{r:.004,n:"不適用海外",t:""}],
+    cube: [{r:.030,n:"趣旅行方案海外3%（Level2）",t:"需設定自動扣繳達Level2"},{r:.030,n:"LINE Pay 趣旅行 3%",t:""},{r:.004,n:"不適用海外",t:""}],
   },
   japan:{
-    esun: [{r:.010,n:"海外基礎1%（限時日韓最高6%）",t:"需登錄限時活動"},{r:.010,n:"LINE Pay 日本 1%",t:""},{r:.070,n:"全支付×PayPay日本 最高15%（至6/30）",t:"日本7-11/全家/藥妝/BIC等可用"}],
-    am:   [{r:.0455,n:"加速器日本實體 10元=1里",t:""},{r:.0455,n:"LINE Pay 加速器日本",t:""},{r:.070,n:"全支付×PayPay日本 最高15%（至6/30）",t:"建議查看當期活動"}],
-    dawho:[{r:.045,n:"大戶等級國外 4.5%",t:""},{r:.045,n:"LINE Pay 日本 4.5%",t:""},{r:.070,n:"全支付×PayPay日本 最高15%（至6/30）",t:"活動期間超越直刷"}],
-    cube: [{r:.035,n:"日本賞方案3.5%（≤2026/4/30）",t:"後改趣旅行3%"},{r:.035,n:"LINE Pay 日本賞 3.5%",t:""},{r:.070,n:"全支付×PayPay日本 最高15%（至6/30）",t:"強烈推薦全支付"}],
+    esun: [{r:.010,n:"海外基礎1%（限時日韓最高6%）",t:"需登錄限時活動"},{r:.010,n:"LINE Pay 日本 1%",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:"日本7-11/全家/藥妝/BIC等可用"}],
+    am:   [{r:.0455,n:"加速器日本實體 10元=1里",t:""},{r:.0455,n:"LINE Pay 加速器日本",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:""}],
+    dawho:[{r:.045,n:"國外（依等級）",t:""},{r:.045,n:"LINE Pay 日本（依等級）",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:"活動期間超越直刷"}],
+    cube: [{r:.035,n:"日本賞方案3.5%（≤2026/4/30）",t:"後改趣旅行3%"},{r:.035,n:"LINE Pay 日本賞 3.5%",t:""},{r:.070,n:"全支付×PayPay 最高15%（至6/30）",t:"強烈推薦全支付"}],
   },
 };
-
-// ── 月回饋上限（NT$）：null = 無上限 ──────────────────────────────
-// 格式：CAPS[cardId][sceneId][walletKey] = maxCashbackNTD
 const CAPS={
-  // CUBE：各方案有月上限；以每場景 NT$300 計（約占方案回饋的主要類別上限）
   cube:{
     convenience:{direct:300,linepay:100,pxpay:300},
     restaurant:  {direct:300,linepay:100,pxpay:null},
@@ -409,130 +504,52 @@ const CAPS={
     travel:      {direct:300,linepay:300,pxpay:null},
     abroad:      {direct:300,linepay:300,pxpay:null},
     japan:       {direct:300,linepay:300,pxpay:null},
-    gas:         {direct:null,linepay:null,pxpay:null},
-    pharmacy:    {direct:null,linepay:null,pxpay:null},
   },
-  // DAWHO：大戶等級的「額外回饋」共用月上限，跨場景共享
-  // 大戶：NT$400  |  大戶Plus：NT$1,000  |  一般：NT$0（無額外）
   dawho:{_global:{none:0,dawho:400,plus:1000}},
-  // 玉山 WORLD：旅遊登錄 6000點/月（1點≈1元）
   esun:{travel:{direct:6000,linepay:6000,pxpay:null}},
-  // 亞洲萬里通：目前無月上限
-  am:{},
 };
-
-// 店名關鍵字 → 場景
 const KW=[
-  {keys:["7-11","7-eleven","711","7eleven","全家","family mart","familymart","萊爾富","hilife","ok mart","ok便利","便利"],scene:"convenience"},
-  {keys:["全聯","pxmart","家樂福","carrefour","costco","好市多","大潤發","愛買","頂好","wellcome","超市","量販"],scene:"supermarket"},
-  {keys:["麥當勞","mcdonalds","mcdonald","kfc","肯德基","星巴克","starbucks","85度c","八十五度","coco","五十嵐","50嵐","鼎泰豐","王品","西堤","瓦城","爭鮮","壽司","拉麵","火鍋","燒肉","餐廳","restaurant","bistro","cafe","咖啡","早餐","食堂","美食","food","海底撈","din tai","mos burger","摩斯"],scene:"restaurant"},
-  {keys:["台塑","fpc","中油","cpc","台亞","加油","gas station","全國加油","昇油"],scene:"gas"},
-  {keys:["屈臣氏","watson","寶雅","poya","康是美","cosmed","藥局","藥妝","drugstore","pharmacy","美華泰"],scene:"pharmacy"},
-  {keys:["netflix","spotify","disney+","disney plus","youtube premium","apple tv","line tv","hbo","friday","愛奇藝","prime video","steam","nintendo","ps store","xbox","twitch","friDay"],scene:"streaming"},
-  {keys:["雄獅","lion travel","東南旅遊","可樂旅遊","kkday","klook","易遊網","eztravel","機票","航空","airline","hotel","飯店","hostel","airbnb","agoda","booking.com","expedia","星宇","starlux","長榮","china airlines","虎航","scoot"],scene:"travel"},
-  {keys:["amazon","ebay","rakuten","樂天","yahoo購物","pchome","momo","蝦皮","shopee","etsy","阿里","淘寶","天貓","海外購物","foreign"],scene:"abroad"},
-  {keys:["japan","日本","tokyo","osaka","kyoto","nagoya","fukuoka","sapporo","沖繩","okinawa","nara","hiroshima","bic camera","yodobashi","don quijote","唐吉軻德","uniqlo","藥妝日本","lawson jp","paypay","全家日本"],scene:"japan"},
+  {keys:["7-11","7-eleven","711","全家","family mart","萊爾富","hilife","ok mart","便利"],scene:"convenience"},
+  {keys:["全聯","pxmart","家樂福","carrefour","costco","好市多","大潤發","超市","量販"],scene:"supermarket"},
+  {keys:["麥當勞","mcdonalds","kfc","肯德基","星巴克","starbucks","85度c","拉麵","火鍋","燒肉","餐廳","restaurant","cafe","咖啡","早餐","食堂","壽司"],scene:"restaurant"},
+  {keys:["台塑","中油","cpc","台亞","加油","gas station"],scene:"gas"},
+  {keys:["屈臣氏","watson","寶雅","poya","康是美","cosmed","藥局","藥妝","pharmacy"],scene:"pharmacy"},
+  {keys:["netflix","spotify","disney+","youtube premium","apple tv","hbo","steam","nintendo"],scene:"streaming"},
+  {keys:["雄獅","lion travel","kkday","klook","機票","航空","airline","hotel","飯店","airbnb","agoda","booking","星宇","長榮"],scene:"travel"},
+  {keys:["amazon","ebay","rakuten","樂天","yahoo購物","pchome","momo","蝦皮","shopee"],scene:"abroad"},
+  {keys:["japan","日本","tokyo","osaka","kyoto","沖繩","okinawa","bic camera","唐吉軻德","uniqlo","paypay"],scene:"japan"},
 ];
-
 const OSM_MAP={
-  "convenience":"convenience","supermarket":"supermarket",
-  "grocery":"supermarket","fuel":"gas","gas_station":"gas",
-  "pharmacy":"pharmacy","chemist":"pharmacy","restaurant":"restaurant",
-  "cafe":"restaurant","fast_food":"restaurant","bar":"restaurant",
-  "hotel":"travel","hostel":"travel","motel":"travel",
-  "travel_agency":"travel","airport":"travel",
+  "convenience":"convenience","supermarket":"supermarket","grocery":"supermarket",
+  "fuel":"gas","gas_station":"gas","pharmacy":"pharmacy","chemist":"pharmacy",
+  "restaurant":"restaurant","cafe":"restaurant","fast_food":"restaurant","bar":"restaurant",
+  "hotel":"travel","hostel":"travel","travel_agency":"travel","airport":"travel",
 };
 
-// ═══════════════════════════════════════════════════════════════
-// 狀態
-// ═══════════════════════════════════════════════════════════════
-let curScene="convenience", curWallet="direct", scenesOpen=false, gpsScene=null;
-let dawhoTier="none";   // "none" | "dawho" | "plus"
-let monthlyOpen=false;
-
-// 本月消費記錄：{ cube:{convenience:1200, ...}, dawho:{_global:890}, esun:{travel:3000} }
-let monthlyLog={};
-let lastBest=null; // 最後一次推薦的 {cardId, sceneId, walletKey, rate}
-
-// ═══════════════════════════════════════════════════════════════
-// LocalStorage 持久化
-// ═══════════════════════════════════════════════════════════════
+// ── 狀態 ────────────────────────────────────────────────
+let curScene="convenience",curWallet="direct",scenesOpen=false,gpsScene=null;
+let dawhoTier="none",monthlyOpen=false;
+let monthlyLog={},lastBest=null;
 const LS_KEY="card-advisor-v2";
 
 function loadStorage(){
   try{
-    const raw=localStorage.getItem(LS_KEY);
-    if(!raw) return;
-    const d=JSON.parse(raw);
-    // 卡片啟用狀態
-    if(d.active) CARDS.forEach(c=>{ if(d.active[c.id]!==undefined) c.active=d.active[c.id]; });
-    // DAWHO 等級
+    const d=JSON.parse(localStorage.getItem(LS_KEY)||'{}');
+    if(d.active) CARDS.forEach(c=>{if(d.active[c.id]!==undefined)c.active=d.active[c.id];});
     if(d.dawhoTier) dawhoTier=d.dawhoTier;
-    // 本月記錄（附月份檢查）
-    const thisMonth=new Date().toISOString().slice(0,7);
-    if(d.month===thisMonth && d.monthlyLog) monthlyLog=d.monthlyLog;
+    const m=new Date().toISOString().slice(0,7);
+    if(d.month===m&&d.monthlyLog) monthlyLog=d.monthlyLog;
     else monthlyLog={};
   }catch(e){}
 }
-
 function saveStorage(){
-  const active={};
-  CARDS.forEach(c=>active[c.id]=c.active);
-  const thisMonth=new Date().toISOString().slice(0,7);
-  localStorage.setItem(LS_KEY,JSON.stringify({active,dawhoTier,month:thisMonth,monthlyLog}));
+  const active={};CARDS.forEach(c=>active[c.id]=c.active);
+  localStorage.setItem(LS_KEY,JSON.stringify({active,dawhoTier,month:new Date().toISOString().slice(0,7),monthlyLog}));
 }
 
-// ═══════════════════════════════════════════════════════════════
-// 月上限輔助
-// ═══════════════════════════════════════════════════════════════
-function getMonthlySpent(cardId,key){
-  return (monthlyLog[cardId]||{})[key]||0;
-}
-
-function getCap(cardId,sceneId,walletKey){
-  if(cardId==="dawho"){
-    // DAWHO 全局上限
-    return CAPS.dawho._global[dawhoTier]||0;
-  }
-  return ((CAPS[cardId]||{})[sceneId]||{})[walletKey]??null;
-}
-
-// DAWHO 根據等級調整回饋率
-function getDawhoRate(baseRate,sceneId,walletKey){
-  const bonusMap={none:0,dawho:0.025,plus:0.04};
-  // abroad/japan 場景海外基礎是 2%，一般是 1%
-  const bonus=bonusMap[dawhoTier]||0;
-  return baseRate+bonus;
-}
-
-// ─ 拿到含上限資訊的推薦條目 ──────────────────────────────────
-function getCapInfo(cardId,sceneId,walletKey,rate){
-  const wk=["direct","linepay","pxpay"][WI[walletKey]];
-  let cap=null, spent=0, key=sceneId;
-
-  if(cardId==="dawho"){
-    cap=getCap(cardId,sceneId,wk);
-    key="_global";
-    // spent = 本月 dawho 全局累積回饋
-    spent=getMonthlySpent(cardId,"_global");
-  } else {
-    cap=getCap(cardId,sceneId,wk);
-    spent=getMonthlySpent(cardId,sceneId);
-  }
-
-  if(cap===null||cap===0) return {cap:null,pct:0,status:"ok",key};
-  const pct=Math.min(1,spent/cap);
-  const status=pct>=1?"full":pct>=0.8?"warning":"ok";
-  return {cap,spent,pct,status,key};
-}
-
-// ═══════════════════════════════════════════════════════════════
-// 初始化
-// ═══════════════════════════════════════════════════════════════
+// ── 初始化 ──────────────────────────────────────────────
 (function init(){
   loadStorage();
-
-  // 卡庫
   const cc=document.getElementById("card-chips");
   CARDS.forEach(c=>{
     const el=document.createElement("div");
@@ -548,89 +565,45 @@ function getCapInfo(cardId,sceneId,walletKey,rate){
     el.onclick=()=>toggleCard(c.id,el);
     cc.appendChild(el);
   });
-  updateTierRow();
-  updateTierBtns();
-
-  // 場景按鈕
+  updateTierRow();updateTierBtns();
   const sg=document.getElementById("scene-grid");
   SCENES.forEach(s=>{
     const b=document.createElement("button");
     b.className="sbtn"+(s.id===curScene?" on":"");
-    b.dataset.id=s.id;
-    b.innerHTML=`${s.icon} ${s.label}`;
+    b.dataset.id=s.id;b.innerHTML=`${s.icon} ${s.label}`;
     b.onclick=()=>manualScene(s.id);
     sg.appendChild(b);
   });
-
   render();
 })();
 
-// ═══════════════════════════════════════════════════════════════
-// 卡庫操作
-// ═══════════════════════════════════════════════════════════════
 function toggleCard(id,el){
-  const c=CARDS.find(x=>x.id===id);
-  c.active=!c.active;
+  const c=CARDS.find(x=>x.id===id);c.active=!c.active;
   el.classList.toggle("off",!c.active);
   el.style.background=c.active?c.color+"1A":"transparent";
   el.style.borderColor=c.active?c.color+"44":"";
-  updateTierRow();
-  saveStorage();
-  render();
+  updateTierRow();saveStorage();render();
 }
-
 function updateTierRow(){
-  const dawho=CARDS.find(c=>c.id==="dawho");
-  document.getElementById("tier-row").style.display=dawho&&dawho.active?"flex":"none";
+  const d=CARDS.find(c=>c.id==="dawho");
+  document.getElementById("tier-row").style.display=d&&d.active?"flex":"none";
 }
-
-function setDawhoTier(t){
-  dawhoTier=t;
-  updateTierBtns();
-  saveStorage();
-  render();
-}
-
-function updateTierBtns(){
-  document.querySelectorAll(".tbtn").forEach(b=>{
-    b.classList.toggle("on",b.dataset.tier===dawhoTier);
-  });
-}
-
-// ═══════════════════════════════════════════════════════════════
-// 場景 / 支付方式
-// ═══════════════════════════════════════════════════════════════
+function setDawhoTier(t){dawhoTier=t;updateTierBtns();saveStorage();render();}
+function updateTierBtns(){document.querySelectorAll(".tbtn").forEach(b=>b.classList.toggle("on",b.dataset.tier===dawhoTier));}
 function toggleScenes(){
   scenesOpen=!scenesOpen;
   document.getElementById("scene-grid").style.display=scenesOpen?"flex":"none";
   document.getElementById("stoggle").textContent=scenesOpen?"▴ 收起":"▾ 手動切換";
 }
-
 function setScene(id){
   curScene=id;
-  document.querySelectorAll(".sbtn").forEach(b=>{
-    b.classList.toggle("on",b.dataset.id===id);
-    b.classList.remove("gps-match");
-  });
-  if(gpsScene===id){
-    const btn=document.querySelector(`.sbtn[data-id="${id}"]`);
-    if(btn)btn.classList.add("gps-match");
-  }
+  document.querySelectorAll(".sbtn").forEach(b=>{b.classList.toggle("on",b.dataset.id===id);b.classList.remove("gps-match");});
+  if(gpsScene===id){const btn=document.querySelector(`.sbtn[data-id="${id}"]`);if(btn)btn.classList.add("gps-match");}
   render();
 }
-
 function manualScene(id){gpsScene=null;hideMatchedPill();setScene(id);}
+function setW(el,w){document.querySelectorAll(".wtab").forEach(x=>x.classList.remove("on"));el.classList.add("on");curWallet=w;render();}
 
-function setW(el,w){
-  document.querySelectorAll(".wtab").forEach(x=>x.classList.remove("on"));
-  el.classList.add("on");
-  curWallet=w;
-  render();
-}
-
-// ═══════════════════════════════════════════════════════════════
-// 店名輸入
-// ═══════════════════════════════════════════════════════════════
 function onInput(){
   const v=document.getElementById("store-input").value.trim().toLowerCase();
   clearLocStatus();
@@ -641,70 +614,45 @@ function onInput(){
   const sugs=KW.flatMap(k=>k.keys.filter(kk=>(kk.includes(v)||v.includes(kk))&&kk.length>1)).slice(0,6);
   showSuggestions([...new Set(sugs)]);
 }
-
-function matchKW(text){
-  for(const k of KW)if(k.keys.some(kk=>text.includes(kk)||kk.includes(text)))return k.scene;
-  return null;
-}
-
+function matchKW(text){for(const k of KW)if(k.keys.some(kk=>text.includes(kk)||kk.includes(text)))return k.scene;return null;}
 function showMatchedPill(sc,ok){
   const el=document.getElementById("matched-pill");
   if(!sc&&!ok){
     el.textContent="請手動選擇消費場景";
-    el.style.cssText="display:inline-flex;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border);";
-    return;
+    el.style.cssText="display:inline-flex;background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border);";return;
   }
-  if(sc){
-    el.textContent=sc.icon+" 識別為「"+sc.label+"」";
-    el.style.cssText="display:inline-flex;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);";
-  }
+  if(sc){el.textContent=sc.icon+" 識別為「"+sc.label+"」";el.style.cssText="display:inline-flex;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);";}
 }
-
 function hideMatchedPill(){document.getElementById("matched-pill").style.display="none";}
-
 function showSuggestions(list){
-  const el=document.getElementById("sug-row");
-  el.innerHTML="";
-  list.forEach(s=>{
-    const b=document.createElement("button");
-    b.className="sug";b.textContent=s;
-    b.onclick=()=>{document.getElementById("store-input").value=s;onInput();el.innerHTML="";};
-    el.appendChild(b);
-  });
+  const el=document.getElementById("sug-row");el.innerHTML="";
+  list.forEach(s=>{const b=document.createElement("button");b.className="sug";b.textContent=s;b.onclick=()=>{document.getElementById("store-input").value=s;onInput();el.innerHTML="";};el.appendChild(b);});
 }
+function showLocStatus(text,color){
+  const el=document.getElementById("loc-status");el.style.display="flex";
+  el.innerHTML=`<div class="loc-dot" style="background:${color}"></div><span style="color:${color}">${text}</span>`;
+}
+function clearLocStatus(){document.getElementById("loc-status").style.display="none";}
 
-// ═══════════════════════════════════════════════════════════════
-// GPS（OpenStreetMap Nominatim）
-// ═══════════════════════════════════════════════════════════════
 function doGPS(){
   if(!navigator.geolocation){showLocStatus("此瀏覽器不支援定位","var(--red)");return;}
-  const btn=document.getElementById("gps-btn");
-  btn.classList.add("spinning");
+  const btn=document.getElementById("gps-btn");btn.classList.add("spinning");
   showLocStatus("取得 GPS 座標中…","var(--blue)");
   navigator.geolocation.getCurrentPosition(pos=>{
     btn.classList.remove("spinning");
-    const {latitude:lat,longitude:lng}=pos.coords;
-    // 簡易判斷是否在台灣境內
+    const{latitude:lat,longitude:lng}=pos.coords;
     const inTW=lat>21.5&&lat<25.5&&lng>119.5&&lng<122.5;
-    if(!inTW){
-      showLocStatus("偵測到海外位置，切換至「海外」場景","var(--amber)");
-      gpsScene="abroad";setScene("abroad");
-      showMatchedPill(SCENES.find(x=>x.id==="abroad"),true);
-      return;
-    }
+    if(!inTW){showLocStatus("偵測到海外位置，切換至「海外」","var(--amber)");gpsScene="abroad";setScene("abroad");showMatchedPill(SCENES.find(x=>x.id==="abroad"),true);return;}
     showLocStatus(`座標 ${lat.toFixed(4)}, ${lng.toFixed(4)} · 查詢附近商家…`,"var(--blue)");
     reverseGeocode(lat,lng);
   },err=>{
     btn.classList.remove("spinning");
-    const msg=err.code===1?"請允許位置存取權限":err.code===3?"定位逾時":"無法取得位置";
-    showLocStatus(msg+"，請手動輸入店名","var(--red)");
+    showLocStatus(err.code===1?"請允許位置存取權限":err.code===3?"定位逾時":"無法取得位置","var(--red)");
   },{timeout:12000,maximumAge:60000});
 }
-
 function reverseGeocode(lat,lng){
   fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=zh-TW&zoom=18`)
-    .then(r=>r.json())
-    .then(d=>{
+    .then(r=>r.json()).then(d=>{
       const addr=d.address||{};
       const name=[addr.amenity,addr.shop,addr.building].filter(Boolean)[0]||"";
       const road=[addr.road||addr.pedestrian,addr.suburb||addr.neighbourhood,addr.city||addr.town].filter(Boolean).join(" · ");
@@ -712,80 +660,61 @@ function reverseGeocode(lat,lng){
       document.getElementById("store-input").value=display;
       const text=(display+" "+(d.type||"")+" "+(d.class||"")).toLowerCase();
       let scene=matchKW(text)||guessOSM(d.type,d.class);
-      if(scene){
-        gpsScene=scene;setScene(scene);
-        showLocStatus(`📌 ${road||display}`,"var(--green)");
-        showMatchedPill(SCENES.find(x=>x.id===scene),true);
-      } else {
-        showLocStatus(`📌 ${road||display} · 請手動選擇場景`,"var(--amber)");
-        showMatchedPill(null,false);
-      }
-    })
-    .catch(()=>showLocStatus("網路查詢失敗，請手動輸入店名","var(--red)"));
+      if(scene){gpsScene=scene;setScene(scene);showLocStatus(`📌 ${road||display}`,"var(--green)");showMatchedPill(SCENES.find(x=>x.id===scene),true);}
+      else{showLocStatus(`📌 ${road||display} · 請手動選擇場景`,"var(--amber)");showMatchedPill(null,false);}
+    }).catch(()=>showLocStatus("查詢失敗，請手動輸入店名","var(--red)"));
+}
+function guessOSM(type,cls){const k=(type||"")+" "+(cls||"");for(const[kk,v]of Object.entries(OSM_MAP))if(k.includes(kk))return v;return null;}
+
+// ── 上限輔助 ─────────────────────────────────────────────
+function getCap(cardId){
+  if(cardId==="dawho"){const c=CAPS.dawho._global[dawhoTier]||0;return c>0?c:null;}
+  return((CAPS[cardId]||{})[curScene]||{})[curWallet]??null;
+}
+function getCapUsed(cardId){
+  if(cardId==="dawho")return(monthlyLog[cardId]||{})._global||0;
+  return(monthlyLog[cardId]||{})[curScene]||0;
 }
 
-function guessOSM(type,cls){
-  const k=(type||"")+" "+(cls||"");
-  for(const[kk,v]of Object.entries(OSM_MAP))if(k.includes(kk))return v;
-  return null;
-}
-
-function showLocStatus(text,color){
-  const el=document.getElementById("loc-status");
-  el.style.display="flex";
-  el.innerHTML=`<div class="loc-dot" style="background:${color}"></div><span style="color:${color}">${text}</span>`;
-}
-function clearLocStatus(){document.getElementById("loc-status").style.display="none";}
-
-// ═══════════════════════════════════════════════════════════════
-// 渲染
-// ═══════════════════════════════════════════════════════════════
+// ── 渲染 ─────────────────────────────────────────────────
 function render(){
   const amt=parseFloat(document.getElementById("amt").value)||0;
   const pi=WI[curWallet];
-  const wk=curWallet;
   const sc=SCENES.find(s=>s.id===curScene);
   const active=CARDS.filter(c=>c.active);
-
   if(!active.length){
     document.getElementById("scene-banner").innerHTML="";
     document.getElementById("results").innerHTML=`<div class="empty">請至少啟用一張卡片</div>`;
     document.getElementById("tip").innerHTML="";
-    document.getElementById("log-btn").style.display="none";
-    return;
+    document.getElementById("log-btn").style.display="none";return;
   }
-
   const entries=active.map(c=>{
     const d=DB[curScene][c.id][pi];
-    // DAWHO：根據等級調整回饋率
     let rate=d.r;
-    if(c.id==="dawho"){
-      const bonusMap={none:0,dawho:0.025,plus:0.04};
-      const abroad=(curScene==="abroad"||curScene==="japan");
-      const base=abroad?0.02:0.01; // 基礎率（海外2%，國內1%）
-      rate=base+(bonusMap[dawhoTier]||0);
-      // 特殊：pxpay abroad/japan保留原本值（海外不適用全支付）
-      if(pi===2) rate=d.r;
+    if(c.id==="dawho"&&pi!==2){
+      const abroad=curScene==="abroad"||curScene==="japan";
+      const bonus={none:0,dawho:.025,plus:.04}[dawhoTier]||0;
+      rate=(abroad?.02:.01)+bonus;
     }
-    const capInfo=getCapInfo(c.id,curScene,wk,rate);
-    // 若上限已達，實際回饋率掉回基礎
-    let effectiveRate=rate;
-    if(capInfo.cap!==null&&capInfo.pct>=1){
-      effectiveRate=c.id==="dawho"?
-        (curScene==="abroad"||curScene==="japan"?0.02:0.01):
-        (c.id==="esun"?0.004:d.r);
+    const cap=getCap(c.id);
+    const capUsed=getCapUsed(c.id);
+    const capPct=cap!=null&&cap>0?Math.min(1,capUsed/cap):0;
+    let effRate=rate;
+    if(cap!=null&&capPct>=1){
+      if(c.id==="dawho")effRate=curScene==="abroad"||curScene==="japan"?.02:.01;
+      else if(c.id==="esun")effRate=.004;
     }
-    return{id:c.id,rate:effectiveRate,origRate:rate,note:d.n,tip:d.t,saving:amt*effectiveRate,capInfo};
+    return{id:c.id,rate:effRate,origRate:rate,note:d.n,tip:d.t,saving:amt*effRate,cap,capUsed,capPct};
   }).sort((a,b)=>b.rate-a.rate);
 
   const best=entries[0];
-  lastBest={cardId:best.id,sceneId:curScene,walletKey:wk,rate:best.origRate};
+  lastBest={cardId:best.id,sceneId:curScene,walletKey:curWallet,rate:best.origRate};
   const bc=CARDS.find(c=>c.id===best.id);
   const diff=(best.saving-(entries[entries.length-1].saving)).toFixed(1);
 
   // Banner
   const banner=document.getElementById("scene-banner");
-  banner.style.cssText=`background:${bc.color}18;border:1px solid ${bc.color}33;border-radius:var(--r-lg);padding:12px 14px;margin-bottom:11px;display:flex;align-items:center;gap:11px;`;
+  banner.style.cssText=`background:${bc.color}18;border:1px solid ${bc.color}33;border-radius:var(--r-xl);padding:16px;margin-bottom:14px;display:flex;align-items:center;gap:13px;`;
   banner.innerHTML=`
     <span class="scene-icon">${sc.icon}</span>
     <div><div class="banner-main">${sc.label}</div><div class="banner-sub">${sc.sub}</div></div>
@@ -795,36 +724,28 @@ function render(){
     </div>`;
 
   // Results
-  const rl=document.getElementById("results");
-  rl.innerHTML="";
+  const rl=document.getElementById("results");rl.innerHTML="";
   entries.forEach((e,i)=>{
     const c=CARDS.find(x=>x.id===e.id);
     const isBest=i===0;
     const isJpPx=curWallet==="pxpay"&&curScene==="japan";
-    const ci=e.capInfo;
-
-    // Cap HTML
     let capHtml="";
-    if(ci.cap!==null){
-      const pct=ci.pct;
-      const barColor=pct>=1?"var(--red)":pct>=0.8?"var(--amber)":"var(--green)";
-      const warnHtml=pct>=1?
+    if(e.cap!=null){
+      const barColor=e.capPct>=1?"var(--red)":e.capPct>=.8?"var(--amber)":"var(--green)";
+      const warnHtml=e.capPct>=1?
         `<div class="cap-warn full">⛔ 本月上限已達，回饋率已降低</div>`:
-        pct>=0.8?
-        `<div class="cap-warn warning">⚠️ 本月快到上限了！剩餘 NT$${(ci.cap-ci.spent).toFixed(0)}</div>`:"";
-      capHtml=`
-        <div class="cap-wrap">
-          <div class="cap-text"><span>月上限 NT$${ci.cap}</span><span>${Math.round(pct*100)}% 已用</span></div>
-          <div class="cap-bar-bg"><div class="cap-bar-fill" style="width:${Math.round(pct*100)}%;background:${barColor}"></div></div>
-          ${warnHtml}
-        </div>`;
+        e.capPct>=.8?
+        `<div class="cap-warn warning">⚠️ 本月快到上限了！剩餘 NT$${(e.cap-e.capUsed).toFixed(0)}</div>`:"";
+      capHtml=`<div class="cap-wrap">
+        <div class="cap-text"><span>月上限 NT$${e.cap}</span><span>${Math.round(e.capPct*100)}% 已用</span></div>
+        <div class="cap-bar-bg"><div class="cap-bar-fill" style="width:${Math.round(e.capPct*100)}%;background:${barColor}"></div></div>
+        ${warnHtml}</div>`;
     }
-
     const div=document.createElement("div");
     div.className="rrow"+(isBest?" best":"");
     div.style.cssText=isBest?
-      `background:${c.color}18;border-color:${c.color}55;border-width:1.5px;border-style:solid;border-radius:var(--r-lg);`:
-      `background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);`;
+      `background:${c.color}18;border-color:${c.color}55;border-width:2px;border-style:solid;border-radius:var(--r-xl);`:
+      `background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-xl);`;
     div.innerHTML=`
       <div class="avatar" style="background:linear-gradient(135deg,${c.color},${c.light})">${c.bank.slice(0,2)}</div>
       <div class="rrow-body">
@@ -842,133 +763,81 @@ function render(){
     rl.appendChild(div);
   });
 
-  // Tip
   const tips=entries.filter(e=>e.tip).slice(0,1);
   const tb=document.getElementById("tip");
-  if(tips.length){
-    const c=CARDS.find(x=>x.id===tips[0].id);
-    tb.innerHTML=`<div class="tip"><span style="font-size:13px;flex-shrink:0">⚠️</span><div class="tip-text"><span class="tip-name">${c.name}</span>・${tips[0].tip}</div></div>`;
-  }else tb.innerHTML="";
-
-  // Log button
+  if(tips.length){const c=CARDS.find(x=>x.id===tips[0].id);tb.innerHTML=`<div class="tip"><span style="font-size:15px;flex-shrink:0">⚠️</span><div class="tip-text"><span class="tip-name">${c.name}</span>・${tips[0].tip}</div></div>`;}
+  else tb.innerHTML="";
   document.getElementById("log-btn").style.display=active.length?"flex":"none";
-
-  // Refresh monthly panel if open
-  if(monthlyOpen) renderMonthly();
+  if(monthlyOpen)renderMonthly();
 }
 
-// ═══════════════════════════════════════════════════════════════
-// 記錄消費
-// ═══════════════════════════════════════════════════════════════
+// ── 記錄 & 追蹤 ─────────────────────────────────────────
 function openLogModal(){
-  if(!lastBest) return;
+  if(!lastBest)return;
   const c=CARDS.find(x=>x.id===lastBest.cardId);
   const sc=SCENES.find(x=>x.id===lastBest.sceneId);
-  document.getElementById("modal-sub").textContent=
-    `${c.name}・${sc.label}・${(lastBest.rate*100).toFixed(2)}% 回饋`;
+  document.getElementById("modal-sub").textContent=`${c.name}・${sc.label}・${(lastBest.rate*100).toFixed(2)}% 回饋`;
   document.getElementById("modal-amt").value=document.getElementById("amt").value||"";
   document.getElementById("log-modal").style.display="flex";
 }
-
 function closeLogModal(){document.getElementById("log-modal").style.display="none";}
-
 function confirmLog(){
-  const raw=document.getElementById("modal-amt").value;
-  const amt=parseFloat(raw);
+  const amt=parseFloat(document.getElementById("modal-amt").value);
   if(!amt||amt<=0){alert("請輸入正確金額");return;}
-  const {cardId,sceneId,rate}=lastBest;
-  const cashback=amt*rate;
-
-  if(!monthlyLog[cardId]) monthlyLog[cardId]={};
-
+  const{cardId,sceneId,rate}=lastBest;
+  if(!monthlyLog[cardId])monthlyLog[cardId]={};
   if(cardId==="dawho"){
-    // DAWHO 累積全局回饋
-    const bonusMap={none:0,dawho:0.025,plus:0.04};
-    const bonusRate=bonusMap[dawhoTier]||0;
-    const bonusCashback=amt*bonusRate;
-    monthlyLog[cardId]._global=(monthlyLog[cardId]._global||0)+bonusCashback;
+    const bonus={none:0,dawho:.025,plus:.04}[dawhoTier]||0;
+    monthlyLog[cardId]._global=(monthlyLog[cardId]._global||0)+amt*bonus;
   } else {
-    monthlyLog[cardId][sceneId]=(monthlyLog[cardId][sceneId]||0)+cashback;
+    monthlyLog[cardId][sceneId]=(monthlyLog[cardId][sceneId]||0)+amt*rate;
   }
-
-  saveStorage();
-  closeLogModal();
-  render();
-  if(monthlyOpen) renderMonthly();
+  saveStorage();closeLogModal();render();
+  if(monthlyOpen)renderMonthly();
 }
 
-// ═══════════════════════════════════════════════════════════════
-// 本月追蹤面板
-// ═══════════════════════════════════════════════════════════════
 function toggleMonthly(){
   monthlyOpen=!monthlyOpen;
-  const grid=document.getElementById("monthly-grid");
-  grid.style.display=monthlyOpen?"flex":"none";
+  const g=document.getElementById("monthly-grid");
+  g.style.display=monthlyOpen?"flex":"none";
   document.getElementById("mtoggle").textContent=monthlyOpen?"▴ 收起":"▾ 展開";
-  if(monthlyOpen) renderMonthly();
+  if(monthlyOpen)renderMonthly();
 }
 
 function renderMonthly(){
   const grid=document.getElementById("monthly-grid");
   const active=CARDS.filter(c=>c.active);
   if(!active.length){grid.innerHTML=`<div class="empty">請至少啟用一張卡片</div>`;return;}
-
   grid.innerHTML=active.map(c=>{
     const clog=monthlyLog[c.id]||{};
     let rows=[];
-
     if(c.id==="dawho"){
       const cap=CAPS.dawho._global[dawhoTier]||0;
       const spent=clog._global||0;
       if(cap>0){
         const pct=Math.min(1,spent/cap);
-        const barColor=pct>=1?"var(--red)":pct>=0.8?"var(--amber)":"var(--green)";
-        rows.push(`
-          <div class="mitem">
-            <div style="display:flex;justify-content:space-between">
-              <span>額外回饋上限（${dawhoTier==="plus"?"Plus":dawhoTier==="dawho"?"大戶":"一般"}）</span>
-              <span style="color:${pct>=1?"var(--red)":pct>=0.8?"var(--amber)":"var(--text2)"}">${spent.toFixed(0)} / ${cap}</span>
-            </div>
-            <div class="mitem-bar"><div style="height:100%;border-radius:999px;background:${barColor};width:${Math.round(pct*100)}%"></div></div>
-          </div>`);
-      } else {
-        rows.push(`<div class="mitem" style="color:var(--text3)">一般等級無額外回饋上限</div>`);
-      }
+        const barColor=pct>=1?"var(--red)":pct>=.8?"var(--amber)":"var(--green)";
+        rows.push(`<div class="mitem"><div class="mitem-row"><span>額外回饋上限（${dawhoTier==="plus"?"Plus":dawhoTier==="dawho"?"大戶":"一般"}）</span><span style="color:${pct>=1?"var(--red)":pct>=.8?"var(--amber)":"var(--text2)"}">${spent.toFixed(0)} / ${cap}</span></div><div class="mitem-bar"><div style="height:100%;border-radius:999px;background:${barColor};width:${Math.round(pct*100)}%"></div></div></div>`);
+      } else rows.push(`<div class="mitem" style="color:var(--text3)">一般等級無額外回饋上限</div>`);
     } else {
       const capDefs=CAPS[c.id]||{};
-      const relevantScenes=Object.keys(capDefs);
-      if(relevantScenes.length===0){
-        rows.push(`<div class="mitem" style="color:var(--text3)">此卡無月回饋上限</div>`);
-      } else {
-        relevantScenes.forEach(sid=>{
-          const cap=(capDefs[sid]||{}).direct;
-          if(!cap) return;
-          const spent=clog[sid]||0;
-          const pct=Math.min(1,spent/cap);
-          const barColor=pct>=1?"var(--red)":pct>=0.8?"var(--amber)":"var(--green)";
-          const sc=SCENES.find(x=>x.id===sid);
-          rows.push(`
-            <div class="mitem">
-              <div style="display:flex;justify-content:space-between">
-                <span>${sc?sc.icon+" "+sc.label:sid}</span>
-                <span style="color:${pct>=1?"var(--red)":pct>=0.8?"var(--amber)":"var(--text2)"}">${spent.toFixed(0)} / ${cap}</span>
-              </div>
-              <div class="mitem-bar"><div style="height:100%;border-radius:999px;background:${barColor};width:${Math.round(pct*100)}%"></div></div>
-            </div>`);
-        });
-      }
+      const sceneKeys=Object.keys(capDefs);
+      if(!sceneKeys.length) rows.push(`<div class="mitem" style="color:var(--text3)">此卡無月回饋上限</div>`);
+      else sceneKeys.forEach(sid=>{
+        const cap=(capDefs[sid]||{}).direct;if(!cap)return;
+        const spent=clog[sid]||0;const pct=Math.min(1,spent/cap);
+        const barColor=pct>=1?"var(--red)":pct>=.8?"var(--amber)":"var(--green)";
+        const sc=SCENES.find(x=>x.id===sid);
+        rows.push(`<div class="mitem"><div class="mitem-row"><span>${sc?sc.icon+" "+sc.label:sid}</span><span style="color:${pct>=1?"var(--red)":pct>=.8?"var(--amber)":"var(--text2)"}">${spent.toFixed(0)} / ${cap}</span></div><div class="mitem-bar"><div style="height:100%;border-radius:999px;background:${barColor};width:${Math.round(pct*100)}%"></div></div></div>`);
+      });
     }
-
-    // 整體警示等級
     const allPct=Object.entries(monthlyLog[c.id]||{}).map(([k,v])=>{
-      if(c.id==="dawho") return{pct:Math.min(1,v/(CAPS.dawho._global[dawhoTier]||1))};
-      const cap=((CAPS[c.id]||{})[k]||{}).direct;
-      return cap?{pct:Math.min(1,v/cap)}:{pct:0};
+      if(c.id==="dawho")return{pct:Math.min(1,v/(CAPS.dawho._global[dawhoTier]||1))};
+      const cap=((CAPS[c.id]||{})[k]||{}).direct;return cap?{pct:Math.min(1,v/cap)}:{pct:0};
     });
     const maxPct=allPct.length?Math.max(...allPct.map(x=>x.pct)):0;
-    const badgeClass=maxPct>=1?"full":maxPct>=0.8?"warn":"ok";
-    const badgeText=maxPct>=1?"⛔ 已達上限":maxPct>=0.8?"⚠️ 快到上限":"✓ 正常";
-
+    const badgeClass=maxPct>=1?"full":maxPct>=.8?"warn":"ok";
+    const badgeText=maxPct>=1?"⛔ 已達上限":maxPct>=.8?"⚠️ 快到上限":"✓ 正常";
     return `<div class="mrow">
       <div class="mrow-header">
         <div class="mrow-name" style="color:${c.light}">${c.name}</div>
@@ -980,11 +849,8 @@ function renderMonthly(){
 }
 
 function resetMonth(){
-  if(!confirm("確定要重置本月所有消費記錄？")) return;
-  monthlyLog={};
-  saveStorage();
-  render();
-  if(monthlyOpen) renderMonthly();
+  if(!confirm("確定要重置本月所有消費記錄？"))return;
+  monthlyLog={};saveStorage();render();if(monthlyOpen)renderMonthly();
 }
 </script>
 
@@ -992,19 +858,9 @@ function resetMonth(){
 if('serviceWorker' in navigator){
   const swCode=`
     const CACHE='card-advisor-v2';
-    const ASSETS=[self.location.pathname];
-    self.addEventListener('install',e=>{
-      e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
-      self.skipWaiting();
-    });
-    self.addEventListener('activate',e=>{
-      e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));
-      self.clients.claim();
-    });
-    self.addEventListener('fetch',e=>{
-      if(e.request.url.includes('nominatim')||e.request.url.includes('fonts.g')) return;
-      e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>r)));
-    });
+    self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll([self.location.pathname])));self.skipWaiting();});
+    self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
+    self.addEventListener('fetch',e=>{if(e.request.url.includes('nominatim')||e.request.url.includes('fonts.g'))return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});
   `;
   const blob=new Blob([swCode],{type:'application/javascript'});
   navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
